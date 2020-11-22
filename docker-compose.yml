@@ -1,0 +1,15 @@
+version: "3"
+services:
+  code:
+    image: codercom/code-server
+    restart: unless-stopped
+    command: code-server --auth none
+    # environment:
+    #   PASSWORD: 1211
+    ports:
+      - 8080:8080
+    volumes:
+      - ./project:/home/coder/project
+      - ./code-server:/home/coder/code-servers
+    extra_hosts:
+      - "local_dev:192.168.2.106"
